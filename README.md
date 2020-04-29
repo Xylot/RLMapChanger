@@ -44,7 +44,7 @@ To enable verbose output, append the `-v` argument
 
 
 ## Map Documentation
-Each map has a shorthand value used by Rocket League. To specifiy a map, run the script using the shorthand value as defined below:
+Each map has a shorthand value used by Rocket League. To specifiy a map, run the script using the shorthand value as defined below (Credits to CantFly from [Ballchasing](https://Ballchasing.com) for the map codes):
 
     {
         "arc_p": "Starbase ARC",
