@@ -7,7 +7,6 @@ import argparse
 import subprocess
 import urllib.request
 from pathlib import Path
-from pprint import pprint
 from Tools import create_logger, export_json, import_json, logger
 
 PARSER = glob.glob('Parser/*.exe')
@@ -23,7 +22,7 @@ def get_args():
 class Parser:
     
     def __init__(self, parser_path):
-        self.parser_path = parser_path[0]
+        self.parser_path = parser_path
         self.release_url = 'https://api.github.com/repos/tfausak/rattletrap/releases/latest'
         self.latest_parser_info = self._get_latest_parser_info()
 
@@ -31,11 +30,11 @@ class Parser:
         if self._parser_out_of_date():
             logger.info('The replay parser is out of date. Retrieving latest rattletrap release...')
             self.updated_parser_path = self._download_parser()
-            os.remove(self.parser_path)
+            self._remove_old_parser()
             return self.updated_parser_path
         else:
             logger.info('Latest parser release already downloaded')
-            return self.parser_path
+            return self.parser_path[0]
 
     def _parser_out_of_date(self) -> bool:
         if not glob.glob('Parser/{}'.format(self.latest_parser_info['Name'])):
@@ -47,6 +46,10 @@ class Parser:
         new_parser_path = 'Parser/{}'.format(self.latest_parser_info['Name'])
         urllib.request.urlretrieve(self.latest_parser_info['URL'], new_parser_path)
         return new_parser_path
+
+    def _remove_old_parser(self):
+        if self.parser_path:
+            os.remove(self.parser_path[0])
 
     def _get_latest_parser_info(self) -> dict:
         logger.debug('Getting latest rattltrap release URL...')
