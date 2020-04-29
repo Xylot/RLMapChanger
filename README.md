@@ -24,12 +24,12 @@ Both libraries can be installed simultaneously using the ```requirements.txt``` 
 
 
 ## Interface
-Argument|Type|Description
-:---|:---:|---:
--r --replay|PATH|Path of the replay to convert
--d --replay-directory|PATH|Directory of the replays you wish to convert
--m --map|STRING|Map code of the map you wish to convert to
--v --verbose|BOOL|Increased output verbosity
+|        Argument       |  Type  |                  Description                 |
+|:---------------------:|:------:|:--------------------------------------------:|
+| -r --replay           |  PATH  |         Path of the replay to convert        |
+| -d --replay-directory |  PATH  | Directory of the replays you wish to convert |
+| -m --map              | STRING |  Map code of the map you wish to convert to  |
+| -v --verbose          |  BOOL  |          Increased output verbosity          |
 
 ## Usage
 To run the script with a single replay file:
