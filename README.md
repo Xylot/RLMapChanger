@@ -10,7 +10,7 @@ Changes the map on a Rocket League replay
 ## Dependencies
 RLMapChanger utilizes the [Rattletrap](https://github.com/tfausak/rattletrap) Rocket League replay parser because of its ability to both decode and encode replays. This parser is downloaded automatically upon running the script.
 
-The tqdm library to visualize conversion progress of a directory and can be installed by running:
+The tqdm library is used to visualize conversion progress of a directory and can be installed by running:
 
     pip install tqdm
 
